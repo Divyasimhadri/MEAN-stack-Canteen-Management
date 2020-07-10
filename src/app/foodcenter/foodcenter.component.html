@@ -1,0 +1,29 @@
+
+<div class="row">
+    <div class="col-sm-9">
+        <div *ngIf="!hideNewFood">
+            <h3>New Food Item</h3>
+            <form #form="ngForm" class="well" (ngSubmit)="onSubmitAddFood(form.value)">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" required name="name" ngModel>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" class="form-control" required name="price" ngModel>
+                </div>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        </div>
+        <food-detail  *ngIf="selectFood&&hideNewFood" [food]="selectFood" (upadteFoodEvent)="OnUpdateEvent($event)"
+        (deleteFoodEvent)="OnDeleteEvent($event)"></food-detail>
+    </div>
+    <div class="col-sm-3">
+        <div class="row">
+            <button type="button" (click)="newFood()" class="btn btn-success" style="margin-bottom: 50px; margin-top: 5px; ">+ New Food</button>
+        </div>
+        <h4>Menu</h4>
+        <food-list (selectFood)="onselectFood($event)" [foods]="foods" ></food-list>
+    </div>
+    
+</div>

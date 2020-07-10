@@ -1,0 +1,9 @@
+<nav class="topnav">
+    <a routerLink="/home" routerLinkActive="active"><b>Home</b></a>
+    <a routerLink="/food" routerLinkActive="active"><b>Menu</b></a>
+    <a style="float: right" *ngIf="!_authservice.loggedIn()" routerLink="/register" routerLinkActive="active"><b>Register</b></a>
+    <a style="float: right" *ngIf="!_authservice.loggedIn()" routerLink="/signin" routerLinkActive="active"><b>SignIn</b></a>
+    <a style="float :right" *ngIf="_authservice.loggedIn()" (click)="_authservice.logoutUser()">LogOut</a>
+</nav>
+
+<router-outlet></router-outlet>

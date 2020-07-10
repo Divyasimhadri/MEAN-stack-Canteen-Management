@@ -1,0 +1,16 @@
+
+<div style="margin-top: 15px;">
+    <form>
+        <div *ngIf="editTitle" class="form-group">
+            <input type="input" class="form-control" name="name" required placeholder="name" [(ngModel)]="food.name">
+        </div>
+        <h3 *ngIf="!editTitle" (click)="onTitleClick()" >{{food.name}}</h3>
+        <div class="form-group">
+            <input type="input" class="form-control" name="price" required placeholder="price" [(ngModel)]="food.price">
+        </div>
+        <div class="row">
+            <button style="margin-left:20px ;margin-right: 15px;" class="btn btn-primary" type="button" (click)=upFood()>Update</button>
+            <button class="btn btn-danger" type="button" (click)=delFood()>Delete</button>
+        </div>
+    </form>
+</div>
